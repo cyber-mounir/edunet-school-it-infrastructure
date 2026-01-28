@@ -7,7 +7,7 @@ Design and simulate a complete IT infrastructure for a medium-sized school.
 - Type: Secondary School
 - Floors: 4
 - Students: ~400
-- Staff: ~80
+- Staff: ~23
 
 ## Business Requirements
 - Reliable internet access
