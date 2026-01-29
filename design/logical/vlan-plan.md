@@ -10,7 +10,7 @@ Each department or group has its own VLAN.
 | 20      | TEACHERS  | Teachers and faculty        |
 | 30      | STUDENTS  | Students                    |
 | 40      | SERVERS   | Servers and network devices |
-| 50      | DIRECTOR  | School Director / Management|
+
 
 ## Design Rationale
 1. **Security**: Students cannot access Admin, Servers, or Director VLANs.  
