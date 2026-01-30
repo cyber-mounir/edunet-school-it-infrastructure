@@ -13,5 +13,5 @@ This file defines the IP subnets and gateways for each VLAN in the school networ
 ## Notes
 - Each VLAN subnet corresponds to the VLAN ID defined in `vlan-plan.md`.  
 - Gateways are assigned to the core router interface for inter-VLAN routing.  
-- DHCP servers should assign IP addresses within the respective VLAN subnet ranges.(DHCP IN ROUTER)  
+- DHCP servers should assign IP addresses within the respective VLAN subnet ranges.(DHCP From ROUTER)  
 - This plan ensures network isolation, scalability, and easy management.
