@@ -11,7 +11,6 @@ $OUs = @(
 
 
 foreach ($ou in $OUs) {
-    # تحقق إذا كان OU موجود بالفعل
     $exists = Get-ADOrganizationalUnit -Filter "Name -eq '$($ou.Name)'" -SearchBase $Domain -ErrorAction SilentlyContinue
     if (-not $exists) {
         New-ADOrganizationalUnit -Name $ou.Name -Path $Domain -Description $ou.Description -ProtectedFromAccidentalDeletion $true
