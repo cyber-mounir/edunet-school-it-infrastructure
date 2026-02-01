@@ -24,5 +24,5 @@ Get-Content $StudentFile | ForEach-Object {
    Add-ADGroupMember G_Students $user
 
     Write-Host "Créé : $user"
-    $i++
+    $i++   #Next User
 }
