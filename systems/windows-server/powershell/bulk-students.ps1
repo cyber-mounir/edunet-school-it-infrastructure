@@ -10,7 +10,7 @@ Get-Content $StudentFile | ForEach-Object {
     $Parts = $FullName.Split(" ")   # "firstname lastname"
     $fn = $Parts[0]                 # first name
     $ln = $Parts[1]                 # last name
-    $user = ($i + "." + $fn.Substring(0,1) + $ln).ToLower()
+    $user = ($i + "." + $ln.Substring(0,2) + $fn).ToLower()
 
     New-ADUser -Name $FullName `
         -SamAccountName $user `
