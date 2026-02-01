@@ -7,6 +7,7 @@ $OUs = @(
     @{Name="Admin"; Description="OU pour l'administration et la direction"},
     @{Name="Teachers"; Description="OU pour les enseignants"},
     @{Name="Students"; Description="OU pour les élèves"},
+    @{Name="Groups"; Description="OU pour les groupes"}
 )
 
 
