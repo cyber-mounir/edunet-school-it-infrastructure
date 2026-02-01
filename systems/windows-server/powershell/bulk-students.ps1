@@ -12,7 +12,8 @@ Get-Content $StudentFile | ForEach-Object {
     $ln = $Parts[1]                 # last name
     $user = ($i + "." + $ln.Substring(0,2) + $fn).ToLower()
 
-    New-ADUser -Name $FullName `
+    New-ADUser 
+        -Name $FullName `
         -SamAccountName $user `
         -UserPrincipalName "$user@edunet.local" `
         -Path "OU=Students,DC=edunet,DC=local" `
