@@ -19,3 +19,6 @@ for a medium-sized school using Windows Server and enterprise networking.
 
 ## Status
 Project completed – Version 1.0
+
+
+##License: MIT License – free to use for educational purposes
