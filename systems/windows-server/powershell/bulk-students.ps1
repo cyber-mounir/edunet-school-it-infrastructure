@@ -1,28 +1,35 @@
+
 Import-Module ActiveDirectory
 
 $Password = ConvertTo-SecureString "P@$$w0rd2026" -AsPlainText -Force
-$i = 1
 
 $StudentFile = "C:\Scripts\students.txt"
 
 Get-Content $StudentFile | ForEach-Object {
-    $FullName = $_.Trim()           # Removing excess space
-    $Parts = $FullName.Split(" ")   # "firstname lastname"
-    $fn = $Parts[0]                 # first name
-    $ln = $Parts[1]                 # last name
-    $user = ($i + "." + $ln.Substring(0,2) + "-" + $fn).ToLower()
+    $FullName = $_.Trim()
+    $Parts = $FullName.Split(" ")
+    $fn = $Parts[0]
+    $ln = $Parts[1]
 
-    New-ADUser ` 
-        -Name $FullName `
-        -SamAccountName $user `
-        -UserPrincipalName "$user@edunet.local" `
-        -Path "OU=Students,DC=edunet,DC=local" `
-        -AccountPassword $Password `
-        -Enabled $true `
-        -ChangePasswordAtLogon $true
+    $user = ($ln.Substring(0,2) + "-" + $fn).ToLower()
 
-   Add-ADGroupMember G_Students $user
+    try {
+        New-ADUser `
+            -Name $FullName `
+            -SamAccountName $user `
+            -UserPrincipalName "$user@edunet.local" `
+            -Path "OU=Students,DC=edunet,DC=local" `
+            -AccountPassword $Password `
+            -Enabled $true `
+            -ChangePasswordAtLogon $true `
+            -ErrorAction Stop
 
-    Write-Host "Créé : $user"
-    $i++   #Next User
+        Add-ADGroupMember G_Students $user -ErrorAction Stop
+
+        Write-Host "Créé : $user" -ForegroundColor Green
+    }
+    catch {
+        Write-Host "Ne pas cree : $user" -ForegroundColor Red
+        Write-Host "Erreur : $($_.Exception.Message)"
+    }
 }
